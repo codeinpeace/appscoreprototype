@@ -23,13 +23,10 @@ namespace WebApplication4.Controllers
 
 
         [HttpGet("[action]")]
-        public IEnumerable<PeopleSearchResult> GetAncestors()
+        public IEnumerable<PeopleSearchResult> GetAncestors(string name)
         {
             //IMPORTANT: If this was not a prototype, I would have put this into a repository layer and implemented proper domain model
-            var ancestors = _context.People.ToList()
-                .ToPeopleSearchResult()
-                .OrderBy( x => x.Name)
-                .Take(10);
+            var ancestors = _context.People.ToList().ToPeopleSearchResult();
             return ancestors;
         }
          

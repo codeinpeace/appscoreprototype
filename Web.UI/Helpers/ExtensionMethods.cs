@@ -18,8 +18,10 @@ namespace Ancestry.Web.UI.Helpers
                               Name = p.Name,
                               Gender = p.Gender,
                               BirthplaceId = p.PlaceId
-                          }).ToList();
-
+                          })
+                          .Take(10)
+                          .OrderBy(x => x.Name)
+                          .ToList();
             return result;
         }
     }

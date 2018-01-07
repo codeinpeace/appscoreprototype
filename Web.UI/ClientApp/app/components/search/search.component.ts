@@ -8,12 +8,19 @@ import { Http } from '@angular/http';
 export class SearchDataComponent {
     public result: PeopleSearchResult[];
 
+    public name: string;
+
     constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
-        http.get(baseUrl + 'api/AncestryData/GetAncestors').subscribe(result => {
+
+        http.get(baseUrl + 'api/AncestryData/GetAncestors?name=' + name).subscribe(result => {
             this.result = result.json() as PeopleSearchResult[];
         }, error => console.error(error));
+        
     }
+
 }
+   
+
 
 interface PeopleSearchResult {
     id: number;
