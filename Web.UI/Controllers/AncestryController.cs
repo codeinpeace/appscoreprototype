@@ -26,10 +26,11 @@ namespace WebApplication4.Controllers
         public IEnumerable<PeopleSearchResult> GetAncestors(string name)
         {
             //IMPORTANT: If this was not a prototype, I would have put this into a repository layer and implemented proper domain model
-            var ancestors = _context.People.ToList().ToPeopleSearchResult();
+            if( string.IsNullOrEmpty(name)) return _context.People.ToList().ToPeopleSearchResult(); 
+            var ancestors = _context.People.Where( x => x.Name.ToLower()
+                                .Contains(name.ToLower()))
+                                .ToList().ToPeopleSearchResult();
             return ancestors;
         }
-         
-        
-    }
+    }   
 }

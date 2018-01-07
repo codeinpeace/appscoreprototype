@@ -6,21 +6,27 @@ import { Http } from '@angular/http';
     templateUrl: './search.component.html'
 })
 export class SearchDataComponent {
-    public result: PeopleSearchResult[];
+    public http: Http;
+    public baseUrl: string;
 
-    public name: string;
+    public result: PeopleSearchResult[];
+        
+    public searchText: string;
    
     constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
+        this.http = http;
+        this.baseUrl = baseUrl;
+        this.searchPeople();
+    }
 
-        http.get(baseUrl + 'api/AncestryData/GetAncestors?name=' + name).subscribe(result => {
+    public searchPeople() {
+        console.log('searching for people')
+
+        this.http.get(this.baseUrl + 'api/AncestryData/GetAncestors?name=' + this.searchText).subscribe(result => {
             this.result = result.json() as PeopleSearchResult[];
         }, error => console.error(error));
-        
     }
 
-    searchPeople() {
-        console.log('searchin for people')
-    }
 
 
 }
