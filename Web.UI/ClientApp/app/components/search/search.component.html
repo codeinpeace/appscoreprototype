@@ -9,6 +9,12 @@
     <button (click)="searchPeople()">Search</button>
 </div>
 
+<p></p>
+<div>
+    Gender: 
+    Male <input type="checkbox" [(ngModel)]="isMale" />
+    Female <input type="checkbox" [(ngModel)]="isFemale" />
+</div>
 
 
 <table class='table' *ngIf="result">

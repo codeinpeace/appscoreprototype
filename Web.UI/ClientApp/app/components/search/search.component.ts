@@ -12,6 +12,8 @@ export class SearchDataComponent {
     public result: PeopleSearchResult[];
         
     public searchText: string;
+    public isMale: boolean;
+    public isFemale: boolean;
    
     constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
         this.http = http;
