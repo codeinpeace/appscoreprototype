@@ -9,7 +9,7 @@ export class SearchDataComponent {
     public result: PeopleSearchResult[];
 
     public name: string;
-
+   
     constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
 
         http.get(baseUrl + 'api/AncestryData/GetAncestors?name=' + name).subscribe(result => {
@@ -17,6 +17,11 @@ export class SearchDataComponent {
         }, error => console.error(error));
         
     }
+
+    searchPeople() {
+        console.log('searchin for people')
+    }
+
 
 }
    
