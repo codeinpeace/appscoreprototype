@@ -1,0 +1,30 @@
+
+Phase 1
+---------
+Just create the working UI prototype in Angualar 5
++ 
+Write tests
+
+
+Phase 2
+-------
+Create working API + backend solution
++ 
+tests 
+
+
+Phase 3
+--------
+- Optimise it and make it scalable
+- Refactor the solution structure and make it proper
+
+
+Phase 4
+--------
+- Apply the latest acrichtectural patterns 
+ + 
+Docker + CI/CD
+ + 
+Deploy to Azure/ AWS from GitHub
+
+
